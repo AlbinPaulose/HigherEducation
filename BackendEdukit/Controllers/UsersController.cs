@@ -33,5 +33,13 @@ namespace BackendEdukit.Controllers
             var colleges = objDataContextClass.tblcollegenew.Where(colg => colg.CourseName.Equals(course)).ToList();
             return Ok(colleges);
         }
+
+        [HttpGet("filterCollegesCourseOn/{course}/{sortBy}")]
+        public async Task<IActionResult> FilterCollegesOn(string course,string sortBy)
+        {
+            var colleges = objDataContextClass.tblcollegenew.Where(c => c.CourseName.Equals(course) && (c.University.Equals(sortBy) || c.District.Equals(sortBy))).ToList();
+            return Ok(colleges);
+        }
+
     }
 }

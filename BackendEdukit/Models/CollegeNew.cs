@@ -9,7 +9,10 @@ namespace BackendEdukit.Models
 
         public string? CourseName { get; set; }
 
+        [Required(ErrorMessage = "Please enter college name")]
         public string? CollegeName { get; set; }
+
+        [Required(ErrorMessage = "Please enter no of seats")]
 
         public int SeatsAvailable { get; set; }
 
